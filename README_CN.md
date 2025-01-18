@@ -2,7 +2,7 @@
 Coil3 使用 Cronet 作为网络加载组件
 
 ## Why
-Cronet 支持 `HTTP1.1`\`HTTP2`\`QUIC/HTTP3` 协议，拥有更好的性能。本库基于[okcronet](https://github.com/limuyang2/okcronet)封装。
+Cronet 支持 `HTTP1.1`、`HTTP2`及`QUIC/HTTP3` 协议，拥有更好的性能。本库基于[okcronet](https://github.com/limuyang2/okcronet)封装。
 
 ## 使用
 ### 引入本库

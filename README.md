@@ -1,6 +1,8 @@
 # Coil3-Cronet
 Coil3 uses Cronet as the network loading component.
 
+[中文](https://github.com/limuyang2/Coil3-Cronet/blob/main/README_CN.md)
+
 ## Why
 Cronet supports the `HTTP1.1`, `HTTP2`, and `QUIC/HTTP3` protocols, offering better performance. This library is encapsulated based on[okcronet](https://github.com/limuyang2/okcronet).
 
