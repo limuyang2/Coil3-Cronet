@@ -1,40 +1,40 @@
 # Coil3-Cronet
-Coil3 uses Cronet as the network loading component.
+Coil3 使用 Cronet 作为网络加载组件
 
 ## Why
-Cronet supports the `HTTP1.1`, `HTTP2`, and `QUIC/HTTP3` protocols, offering better performance. This library is encapsulated based on[okcronet](https://github.com/limuyang2/okcronet).
+Cronet 支持 `HTTP1.1`\`HTTP2`\`QUIC/HTTP3` 协议，拥有更好的性能。本库基于[okcronet](https://github.com/limuyang2/okcronet)封装。
 
-## Usage
-### Import this library
+## 使用
+### 引入本库
 ```
 implementation("io.github.limuyang2:coil3-cronet:1.0.0")
 
 // coil
 implementation("io.coil-kt.coil3:coil:3.0.4")
-// coil network functionality
+// coil 网络功能
 implementation("io.coil-kt.coil3:coil-network-core:3.0.4")
 
 
-// Add your Cronet dependencies, for example:
+// 添加你的cronet依赖，例如：
 implementation("org.chromium.net:cronet-api:119.6045.31")
 implementation("org.chromium.net:cronet-common:119.6045.31")
 implementation("org.chromium.net:cronet-embedded:119.6045.31")
 ```
-### Configuration
-## Method 1
-Add the following code in the `onCreate()` method of `Application`:
+### 配置
+## 方式一
+在`Application`的`onCreate()`中添加如下代码：
 ```kotlin
 SingletonImageLoader.setSafe { context ->
     ImageLoader.Builder(context)
     .crossfade(true)
     components {
-        add(CronetNetworkFetcherFactory(cronetEngine)) // Add network request component
+        add(CronetNetworkFetcherFactory(cronetEngine)) // 添加网络请求组件
     }
     .build()
 }
 ```
-## Method 2
-Let `Application` implement the `SingletonImageLoader.Factory` interface:
+## 方式二
+`Application` 实现 `SingletonImageLoader.Factory`接口：
 ```kotlin
 class App : Application(), SingletonImageLoader.Factory {
 
@@ -42,13 +42,13 @@ class App : Application(), SingletonImageLoader.Factory {
         return ImageLoader.Builder(context)
             .crossfade(true)
             .components {
-                add(CronetNetworkFetcherFactory(cronetEngine)) // Add network request component
+                add(CronetNetworkFetcherFactory(cronetEngine)) // 添加网络请求组件
             }
             .build()
     }
 ```
-## More methods
-Please refer to the[coil](https://coil-kt.github.io/coil/getting_started)documentation
+## 更多方式
+请参考[coil](https://coil-kt.github.io/coil/getting_started/)文档
 
 
 # Thanks
