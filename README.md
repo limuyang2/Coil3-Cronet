@@ -29,7 +29,7 @@ Add the following code in the `onCreate()` method of `Application`:
 SingletonImageLoader.setSafe { context ->
     ImageLoader.Builder(context)
     .crossfade(true)
-    components {
+    .components {
         add(CronetNetworkFetcherFactory(cronetEngine)) // Add network request component
     }
     .build()
