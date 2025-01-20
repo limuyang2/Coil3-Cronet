@@ -27,7 +27,7 @@ implementation("org.chromium.net:cronet-embedded:119.6045.31")
 SingletonImageLoader.setSafe { context ->
     ImageLoader.Builder(context)
     .crossfade(true)
-    components {
+    .components {
         add(CronetNetworkFetcherFactory(cronetEngine)) // 添加网络请求组件
     }
     .build()
