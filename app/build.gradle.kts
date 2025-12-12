@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.github.limuyang.coil3_cronet"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.github.limuyang.coil3_cronet"
-        minSdk = 23
-        targetSdk = 35
+        minSdk = 24
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -44,9 +44,9 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.coil.network.core)
     implementation(project(":coil3_cronet"))
-    implementation("org.chromium.net:cronet-api:119.6045.31")
-    implementation("org.chromium.net:cronet-common:119.6045.31")
-    implementation("org.chromium.net:cronet-embedded:119.6045.31")
+    implementation("org.chromium.net:cronet-api:141.7340.3")
+    implementation("org.chromium.net:cronet-common:141.7340.3")
+    implementation("org.chromium.net:cronet-embedded:141.7340.3")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

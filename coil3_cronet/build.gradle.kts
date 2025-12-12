@@ -42,8 +42,8 @@ android {
 dependencies {
     implementation(libs.coil)
     implementation(libs.coil.network.core)
-    implementation("io.github.limuyang2:okcronet:1.0.2")
-    compileOnly("org.chromium.net:cronet-api:119.6045.31")
+    implementation("io.github.limuyang2:okcronet:1.0.6")
+    compileOnly("org.chromium.net:cronet-api:141.7340.3")
 }
 
 
@@ -56,23 +56,26 @@ var signingKeyId = ""//签名的密钥后8位
 var signingPassword = ""//签名设置的密码
 var secretKeyRingFile = ""//生成的secring.gpg文件目录
 
+try {
+    val localProperties: File = project.rootProject.file("local.properties")
 
-val localProperties: File = project.rootProject.file("local.properties")
+    if (localProperties.exists()) {
+        println("Found secret props file, loading props")
+        val properties = Properties()
 
-if (localProperties.exists()) {
-    println("Found secret props file, loading props")
-    val properties = Properties()
+        InputStreamReader(FileInputStream(localProperties), Charsets.UTF_8).use { reader ->
+            properties.load(reader)
+        }
+        signingKeyId = properties.getProperty("signing.keyId")
+        signingPassword = properties.getProperty("signing.password")
+        secretKeyRingFile = properties.getProperty("signing.secretKeyRingFile")
 
-    InputStreamReader(FileInputStream(localProperties), Charsets.UTF_8).use { reader ->
-        properties.load(reader)
+    } else {
+        println("No props file, loading env vars")
     }
-    signingKeyId = properties.getProperty("signing.keyId")
-    signingPassword = properties.getProperty("signing.password")
-    secretKeyRingFile = properties.getProperty("signing.secretKeyRingFile")
-
-} else {
-    println("No props file, loading env vars")
+} catch (e: Exception) {
 }
+
 
 afterEvaluate {
 
