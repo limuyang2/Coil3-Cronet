@@ -2,9 +2,8 @@ package com.github.limuyang.coil3_cronet
 
 import android.app.Application
 import coil3.ImageLoader
-import coil3.PlatformContext
 import coil3.SingletonImageLoader
-import coil3.compose.setSingletonImageLoaderFactory
+import coil3.request.CachePolicy
 import coil3.request.crossfade
 import io.github.limuyang2.coil3.cronet.CronetNetworkFetcherFactory
 import org.chromium.net.CronetEngine
@@ -14,16 +13,7 @@ import org.chromium.net.CronetEngine
  * @date 2025/1/18
  * @description
  */
-class App : Application(), SingletonImageLoader.Factory {
-
-    override fun newImageLoader(context: PlatformContext): ImageLoader {
-        return ImageLoader.Builder(context)
-            .crossfade(true)
-            .components {
-                add(CronetNetworkFetcherFactory(cronetEngine))
-            }
-            .build()
-    }
+class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -32,6 +22,8 @@ class App : Application(), SingletonImageLoader.Factory {
         SingletonImageLoader.setSafe { context ->
             ImageLoader.Builder(context)
                 .crossfade(true)
+                .diskCachePolicy(CachePolicy.DISABLED)
+                .memoryCachePolicy(CachePolicy.DISABLED)
                 .components {
                     add(CronetNetworkFetcherFactory(cronetEngine))
                 }
@@ -44,7 +36,7 @@ class App : Application(), SingletonImageLoader.Factory {
     companion object {
         lateinit var application: Application
 
-        val cronetEngine by lazy {
+        val cronetEngine: CronetEngine by lazy {
             CronetEngine.Builder(application)
                 .enableHttpCache(CronetEngine.Builder.HTTP_CACHE_DISABLED, 1048576)
                 .enableHttp2(true)
