@@ -9,7 +9,7 @@ Cronet supports the `HTTP1.1`, `HTTP2`, and `QUIC/HTTP3` protocols, offering bet
 ## Usage
 ### Import this library
 ```
-implementation("io.github.limuyang2:coil3-cronet:1.0.0")
+implementation("io.github.limuyang2:coil3-cronet:1.0.2")
 
 // coil
 implementation("io.coil-kt.coil3:coil:3.0.4")
@@ -18,9 +18,9 @@ implementation("io.coil-kt.coil3:coil-network-core:3.0.4")
 
 
 // Add your Cronet dependencies, for example:
-implementation("org.chromium.net:cronet-api:119.6045.31")
-implementation("org.chromium.net:cronet-common:119.6045.31")
-implementation("org.chromium.net:cronet-embedded:119.6045.31")
+implementation("org.chromium.net:cronet-api:141.7340.3")
+implementation("org.chromium.net:cronet-common:141.7340.3")
+implementation("org.chromium.net:cronet-embedded:141.7340.3")
 ```
 ### Configuration
 ## Method 1

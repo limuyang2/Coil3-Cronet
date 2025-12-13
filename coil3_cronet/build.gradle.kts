@@ -31,18 +31,18 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        jvmToolchain(17)
     }
 }
 
 dependencies {
     implementation(libs.coil)
     implementation(libs.coil.network.core)
-    implementation("io.github.limuyang2:okcronet:1.0.6")
+    implementation("io.github.limuyang2:okcronet:1.0.8")
     compileOnly("org.chromium.net:cronet-api:141.7340.3")
 }
 
@@ -50,7 +50,7 @@ dependencies {
 
 //---------- maven upload info -----------------------------------
 
-val versionName = "1.0.0"
+val versionName = "1.0.2"
 
 var signingKeyId = ""//签名的密钥后8位
 var signingPassword = ""//签名设置的密码
