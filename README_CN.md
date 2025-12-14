@@ -7,7 +7,7 @@ Cronet 支持 `HTTP1.1`、`HTTP2`及`QUIC/HTTP3` 协议，拥有更好的性能�
 ## 使用
 ### 引入本库
 ```
-implementation("io.github.limuyang2:coil3-cronet:1.0.2")
+implementation("io.github.limuyang2:coil3-cronet:1.0.3")
 
 // coil
 implementation("io.coil-kt.coil3:coil:3.0.4")

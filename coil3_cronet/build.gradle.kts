@@ -42,7 +42,7 @@ android {
 dependencies {
     implementation(libs.coil)
     implementation(libs.coil.network.core)
-    implementation("io.github.limuyang2:okcronet:1.0.8")
+    implementation("io.github.limuyang2:okcronet:1.0.11")
     compileOnly("org.chromium.net:cronet-api:141.7340.3")
 }
 
@@ -50,7 +50,7 @@ dependencies {
 
 //---------- maven upload info -----------------------------------
 
-val versionName = "1.0.2"
+val versionName = "1.0.3"
 
 var signingKeyId = ""//签名的密钥后8位
 var signingPassword = ""//签名设置的密码
