@@ -28,7 +28,7 @@ internal class CallFactoryNetworkClient(private val callFactory: Call.Factory) :
         request: NetworkRequest,
         block: suspend (NetworkResponse) -> T,
     ): T {
-        val response = callFactory.newCall(request.toRequest()).await()
+        val response = callFactory.newCall(request.toRequest()).execute()
 
         return response.body.use {
             val networkResponse = NetworkResponse(
